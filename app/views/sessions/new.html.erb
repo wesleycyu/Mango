@@ -1,5 +1,5 @@
 <h1>Login Page</h1>
-<%= form_tag session_path do %>
+<%= form_tag sessions_path do %>
 
   <div>
     <%= label_tag "Email Address" %>
@@ -12,7 +12,7 @@
   </div>
 
   <div>
-    <%= sumbit_tag "Log in" %>
+    <%= submit_tag "Log in" %>
   </div>
 
 <% end %>
