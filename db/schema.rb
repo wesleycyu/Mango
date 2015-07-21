@@ -11,15 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721062652) do
+ActiveRecord::Schema.define(version: 20150721040232) do
 
-  create_table "movies", force: true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.string   "director"
     t.integer  "runtime_in_minutes"
     t.text     "description"
     t.string   "poster_image_url"
-    t.string   "release_date"
+    t.datetime "release_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
