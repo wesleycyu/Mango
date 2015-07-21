@@ -1,4 +1,13 @@
 RottenMangoes::Application.routes.draw do
-  resources :movies
+
+  get 'users/new'
+
+  get 'users/create'
+
   root to: 'movies#index'
+
+  resources :movies
+
+  resources :users, only: [:new, :create]
+
 end

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     presence: true
 
   validates :lastname,
-    presence :true
+    presence: :true
 
   validates :password,
     length: {in: 6..20}, on: :create
