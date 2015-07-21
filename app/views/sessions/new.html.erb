@@ -1,0 +1,18 @@
+<h1>Login Page</h1>
+<%= form_tag session_path do %>
+
+  <div>
+    <%= label_tag "Email Address" %>
+    <%= text_field_tag "email" %>
+  </div>
+
+  <div>
+    <%= label_tag "Password" %>
+    <%= password_field_tag "password" %>
+  </div>
+
+  <div>
+    <%= sumbit_tag "Log in" %>
+  </div>
+
+<% end %>
