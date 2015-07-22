@@ -2,7 +2,9 @@ RottenMangoes::Application.routes.draw do
 
   root to: 'movies#index'
 
-  resources :movies
+  resources :movies do
+    resources :reviews, only: [:new,:create]
+  end
 
   resources :users, only: [:new, :create]
 

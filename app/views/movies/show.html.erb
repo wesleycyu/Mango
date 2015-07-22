@@ -5,3 +5,14 @@
 <p>Description: <%= @movie.description %></p>
 <p>Release Date: <%= @movie.release_date.to_date %></p>
 <p><a href="<%= @movie.poster_image_url %>">See the poster</a></p>
+
+<% if current_user %>
+  <% @movie.reviews.each do |review| %>
+    <p><%= review.text %></p>
+    <p><%= review.rating_out_of_ten %></p>
+    <small> - <%= review.user.email %> </small>
+  <% end %>
+  <p><%= link_to "Write a review!", new_movie_review_path(@movie) %></p>
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> to see reviews for this film.</p
+<% end %>
