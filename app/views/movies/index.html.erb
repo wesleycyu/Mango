@@ -5,6 +5,6 @@
   <p>Director: <%= movie.director %></p>
   <p>Runtime: <%= movie.runtime_in_minutes %> minutes</p>
   <p>Description: <%= movie.description %></p>
-  <p>Release Date: <%= movie.release_date.to_date %></p>
+  <p>Release Date: <%= formatted_date(movie.release_date) %></p>
   <p><a href="<%= movie.poster_image_url %>">See the poster</a></p>
 <% end %>
