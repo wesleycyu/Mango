@@ -1,4 +1,6 @@
-<%= link_to "Back to all movies", movies_path %>
+<%= link_to "Back to all movies", movies_path %><br>
+
+<%= image_tag @movie.poster_image_url.thumb.to_s %>
 
 <h2><%= @movie.title %> <small>(<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), :method => :delete, :"data-confirm" => "You sure?" %>)</small></h2>
 
@@ -8,9 +10,7 @@
 
 <p>Description: <%= @movie.description %></p>
 
-<p>Release Date: <%= formated_date(@movie.release_date) %></p>
-
-<p><a href="<%= @movie.poster_image_url %>">See the poster</a></p>
+<p>Release Date: <%= formatted_date(@movie.release_date) %></p>
 
 <% if current_user %>
   <% if @movie.reviews.count > 0 %>

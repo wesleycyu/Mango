@@ -45,7 +45,7 @@ gem 'bcrypt-ruby', '3.1.2'
 # gem 'debugger', group: [:development, :test]
 
 gem 'byebug'
-
 gem 'ruby-ole'
-
 gem 'pg'
+gem 'rmagick'
+gem 'carrierwave'
