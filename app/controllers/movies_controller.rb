@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   end
 
   def search
-    @movies = Movie.where("lower(title || director) LIKE ? AND runtime_in_minutes < ?", "%#{params[:title].downcase}%", params[:length].to_i).page(params[:page]).per(5)
+    @movies = Movie.runtime(params[:length]).search(params[:title]).page(params[:page]).per(5)
   end
 
   def new
