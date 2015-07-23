@@ -1,7 +1,7 @@
 class Admin::UsersController < UsersController
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(5)
   end
 
   def new

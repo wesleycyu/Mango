@@ -47,5 +47,6 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'byebug'
 gem 'ruby-ole'
 gem 'pg'
-gem 'rmagick'
-gem 'carrierwave'
+gem 'rmagick' #  <------- For Image Resizing
+gem 'carrierwave' # <---- For Image Upload
+gem 'kaminari' # <------- For Pagination
