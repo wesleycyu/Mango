@@ -9,6 +9,17 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def admin?
+    current_user.super_user
+  end
+
+  def check_admin
+    unless admin?
+      flash[:error] = "You must be an admin to access this section"
+      redirect_to movies_path
+    end
+  end
+
   def restrict_access
     if !current_user
       flash[:alert] = "You must log in."
@@ -16,6 +27,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :current_user
+  helper_method :current_user, :check_admin, :admin?
 
 end

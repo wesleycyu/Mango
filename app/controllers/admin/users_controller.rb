@@ -1,4 +1,5 @@
 class Admin::UsersController < UsersController
+  before_action :check_admin
 
   def index
     @users = User.all.page(params[:page]).per(5)
@@ -45,7 +46,7 @@ class Admin::UsersController < UsersController
   protected
 
   def user_params
-    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
+    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :super_user)
   end
 
 end

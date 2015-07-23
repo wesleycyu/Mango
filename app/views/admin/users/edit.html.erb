@@ -30,7 +30,12 @@
   </div>
 
   <div>
-    <%= f.submit "Update your account!" %>
+    <%= f.label "Admin?" %>
+    <%= f.check_box "super_user" %>
+  </div>
+
+  <div>
+    <%= f.submit "Update account!" %>
   </div>
 
 <% end %>
