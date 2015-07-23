@@ -38,6 +38,7 @@ class Admin::UsersController < UsersController
     if current_user == @user
       redirect_to admin_users_path, notice: "You can not delete yourself!"
     else
+      UserMailer.deletion_email(@user).deliver_now
       @user.destroy
       redirect_to admin_users_path, notice: "#{@user.full_name} was deleted!"
     end

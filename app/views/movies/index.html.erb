@@ -1,4 +1,11 @@
 <h1>All Movies</h1>
+<%= form_tag("/movies/search", method: 'get') do %>
+  <%= label_tag(:title, "Title Search:") %>
+  <%= text_field_tag(:title) %>
+  <%= select_tag :length, options_for_select([ ["Under 90 mintues", "<= 90"], ["Between 90 to 120 mintues","BETWEEN (90..120)"], ["Over 120 minutes", "> 120"] ]) %>
+  <%= submit_tag("Search") %>
+<% end %>
+<br/>
 <%= link_to "Add a movie!", new_movie_path %>
 <% @movies.each do |movie| %>
   <h2><%= link_to movie.title, movie_path(movie) %></h2>
@@ -9,3 +16,4 @@
   <%= image_tag movie.poster_image_url.thumb.to_s %> <!-- uses the ImageUploader class to display thumbnail size -->
 <% end %>
 <%= paginate @movies %>
+<hr/>

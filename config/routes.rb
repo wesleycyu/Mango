@@ -1,5 +1,7 @@
 RottenMangoes::Application.routes.draw do
 
+  get "movies/search", to: 'movies#search'
+
   root to: 'movies#index'
 
   resources :movies do
