@@ -1,5 +1,7 @@
-<h1>Create an Account</h1>
-<%= form_for @user do |f| %>
+<h1>Admin Edit</h1>
+<p>You are editing <%= @user.full_name %>'s account info </p>
+
+<%= form_for [:admin, @user], method: :put do |f| %>
 
   <% if @user.errors.any? %>
     <div class="errors">
@@ -28,17 +30,7 @@
   </div>
 
   <div>
-    <%= f.label "Password" %>
-    <%= f.password_field "password" %>
-  </div>
-
-  <div>
-    <%= f.label "Password Confirmation" %>
-    <%= f.password_field "password_confirmation" %>
-  </div>
-
-  <div>
-    <%= f.submit "Create your account!" %>
+    <%= f.submit "Update your account!" %>
   </div>
 
 <% end %>

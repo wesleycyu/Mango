@@ -1,4 +1,4 @@
-<h1>Create an Account</h1>
+<h1> Edit <%= @user.full_name %>'s Account </h1>
 <%= form_for @user do |f| %>
 
   <% if @user.errors.any? %>
@@ -28,17 +28,7 @@
   </div>
 
   <div>
-    <%= f.label "Password" %>
-    <%= f.password_field "password" %>
-  </div>
-
-  <div>
-    <%= f.label "Password Confirmation" %>
-    <%= f.password_field "password_confirmation" %>
-  </div>
-
-  <div>
-    <%= f.submit "Create your account!" %>
+    <%= f.submit "Update your account!" %>
   </div>
 
 <% end %>

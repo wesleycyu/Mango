@@ -1,5 +1,5 @@
-<h1>Create an Account</h1>
-<%= form_for @user do |f| %>
+<h1>ADMIN - Create an Account</h1>
+<%= form_for [:admin, @user], method: :post do |f| %>
 
   <% if @user.errors.any? %>
     <div class="errors">
@@ -42,3 +42,4 @@
   </div>
 
 <% end %>
+
