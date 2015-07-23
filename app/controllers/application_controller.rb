@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def previous_user?
+    session[:previous_user].super_user
+  end
+
   def restrict_access
     if !current_user
       flash[:alert] = "You must log in."

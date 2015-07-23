@@ -1,8 +1,24 @@
 class Admin::UsersController < UsersController
   before_action :check_admin
+  skip_before_action :check_admin, only: [:return]
 
   def index
     @users = User.all.page(params[:page]).per(5)
+  end
+
+  def become
+    user = User.find(params[:id])
+    session[:previous_user] = current_user.id
+    session[:user_id] = user.id
+    redirect_to movies_path, notice: "Welcome back, #{user.firstname}!"
+  end
+
+  def return
+    byebug
+    user = session[:previous_user]
+    session[:user_id] = user
+    session[:previous_user] = nil
+    redirect_to admin_users_path
   end
 
   def new

@@ -4,6 +4,8 @@
       Signed in as <%= link_to current_user.full_name, edit_user_path(current_user)%> (<%= link_to "Log out", session_path(current_user), method: :delete %>)
       <% if admin? %>
         <%= link_to "Admin Panel", admin_users_path %>
+      <% elsif session[:previous_user] %>
+        <%= link_to "Return to Admin View", return_path(session[:previous_user]) %>
       <% end %>
     <% else %>
       <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
