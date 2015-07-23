@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   end
 
   def search
-    @movies = Movie.where('lower(title || director) LIKE ? OR runtime_in_minutes ?', "%#{params[:title].downcase}%", params[:length]).page(params[:page]).per(5)
+    @movies = Movie.where("lower(title || director) LIKE ? AND runtime_in_minutes < ?", "%#{params[:title].downcase}%", params[:length].to_i).page(params[:page]).per(5)
   end
 
   def new
@@ -42,8 +42,9 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie = Movie.find(params[:id].to_i)
+    @title = @movie.title
     @movie.destroy
-    redirect_to movies_path, notice: "#{@movies.title} was deleted."
+    redirect_to movies_path, notice: "#{@title} was deleted."
   end
 
   protected
