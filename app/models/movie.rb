@@ -21,7 +21,8 @@ class Movie < ActiveRecord::Base
 
   # validate :release_date_is_in_the_future
 
-  scope :runtime, ->(length) {where("runtime_in_minutes < ?", length)}
+  scope :runtime_greater_than, ->(length) {where("runtime_in_minutes > ?", length)}
+  scope :runtime_less_than, ->(length) {where("runtime_in_minutes < ?", length)}
   scope :search, ->(text) {where("lower(title || director) LIKE ?", "%#{text.downcase}%")}
 
   mount_uploader :poster_image_url, ImageUploader

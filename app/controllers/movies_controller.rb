@@ -5,7 +5,16 @@ class MoviesController < ApplicationController
   end
 
   def search
-    @movies = Movie.runtime(params[:length]).search(params[:title]).page(params[:page]).per(5)
+    @movies = Movie.search(params[:title]).page(params[:page]).per(5)
+    case params[:length]
+    when "90"
+      @movies = @movies.runtime_less_than(90)
+    when "120"
+      @movies = @movies.runtime_less_than(120).runtime_greater_than(90)
+    when "121"
+      @movies = @movies.runtime_greater_than(120)
+    end
+    @movies
   end
 
   def new
