@@ -17,6 +17,10 @@ class MoviesController < ApplicationController
     @movies
   end
 
+  def landing
+    render :landing
+  end
+
   def new
     @movie = Movie.new
   end

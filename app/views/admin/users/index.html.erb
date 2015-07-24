@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Admin Index </h1>
 <%= link_to "Create a user", new_admin_user_path %>
 <% @users.each do |user| %>
@@ -10,3 +11,4 @@
 <% end %>
 
 <%= paginate @users %>
+</div>

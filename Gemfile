@@ -50,4 +50,5 @@ gem 'pg'
 gem 'rmagick' #  <------- For Image Resizing
 gem 'carrierwave' # <---- For Image Upload
 gem 'kaminari' # <------- For Pagination
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
