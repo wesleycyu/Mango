@@ -5,6 +5,6 @@ $(function () {
     // Starting at the element that was clicked (this)
     // find the closest ancestor that is a "tr" element
     // and remove it
-    $(this).closest('div.user_card').remove();
+    $(this).closest('.user_card').remove();
   });
 });

@@ -50,3 +50,4 @@ gem 'pg'
 gem 'rmagick' #  <------- For Image Resizing
 gem 'carrierwave' # <---- For Image Upload
 gem 'kaminari' # <------- For Pagination
+gem 'bootstrap-sass'

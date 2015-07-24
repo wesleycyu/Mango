@@ -14,7 +14,6 @@ class Admin::UsersController < UsersController
   end
 
   def return
-    byebug
     user = session[:previous_user]
     session[:user_id] = user
     session[:previous_user] = nil
@@ -56,7 +55,10 @@ class Admin::UsersController < UsersController
     else
       UserMailer.deletion_email(@user).deliver_now
       @user.destroy
-      redirect_to admin_users_path, notice: "#{@user.full_name} was deleted!"
+      respond_to do |format|
+        format.html { redirect_to admin_users_path, notice: "#{@user.full_name} was deleted!"}
+        format.js {render json: {notice: "#{@user.full_name} was deleted!"}}
+      end
     end
   end
 
