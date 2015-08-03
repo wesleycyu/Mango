@@ -1,44 +1,46 @@
-<h1>Create an Account</h1>
-<%= form_for @user do |f| %>
+<div class="container">
+  <h1>Create an Account</h1>
+  <%= form_for @user do |f| %>
 
-  <% if @user.errors.any? %>
-    <div class="errors">
-      <%= pluralize(@user.errors.count, "error") %> prevented you from creating you account.
-      <ul>
-        <%= @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+    <% if @user.errors.any? %>
+      <div class="errors">
+        <%= pluralize(@user.errors.count, "error") %> prevented you from creating you account.
+        <ul>
+          <%= @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.label "Email Address" %>
+      <%= f.text_field "email" %>
     </div>
+
+    <div>
+      <%= f.label "First Name" %>
+      <%= f.text_field "firstname" %>
+    </div>
+
+    <div>
+      <%= f.label "Last Name" %>
+      <%= f.text_field "lastname" %>
+    </div>
+
+    <div>
+      <%= f.label "Password" %>
+      <%= f.password_field "password" %>
+    </div>
+
+    <div>
+      <%= f.label "Password Confirmation" %>
+      <%= f.password_field "password_confirmation" %>
+    </div>
+
+    <div>
+      <%= f.submit "Create your account!" %>
+    </div>
+
   <% end %>
-
-  <div>
-    <%= f.label "Email Address" %>
-    <%= f.text_field "email" %>
-  </div>
-
-  <div>
-    <%= f.label "First Name" %>
-    <%= f.text_field "firstname" %>
-  </div>
-
-  <div>
-    <%= f.label "Last Name" %>
-    <%= f.text_field "lastname" %>
-  </div>
-
-  <div>
-    <%= f.label "Password" %>
-    <%= f.password_field "password" %>
-  </div>
-
-  <div>
-    <%= f.label "Password Confirmation" %>
-    <%= f.password_field "password_confirmation" %>
-  </div>
-
-  <div>
-    <%= f.submit "Create your account!" %>
-  </div>
-
-<% end %>
+</div>

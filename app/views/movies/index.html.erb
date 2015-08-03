@@ -7,7 +7,10 @@
   <%= submit_tag("Search") %>
 <% end %>
 <br/>
-<%= link_to "Add a movie!", new_movie_path %>
+<div>
+<button type="button" class="btn btn-info"><%= link_to "Add a movie!", new_movie_path %>
+</button>
+</div>
 <% @movies.each do |film| %>
   <%= render partial: 'movie', locals: {movie: film} %>
 <% end %>
