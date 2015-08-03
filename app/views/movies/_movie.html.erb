@@ -4,10 +4,8 @@
     <div class="caption">
       <h3><%= movie.title %></h3>
       <p><strong>Director: </strong><%= movie.director %></p>
-      <p><strong>Runtime: </strong><%= movie.runtime_in_minutes %> minutes</p>
-      <p><strong>Description: </strong><%= movie.description %></p>
       <p><strong>Release Date: </strong><%= formatted_date(movie.release_date) %></p>
-      <p><%= link_to "view", movie_path(movie), class: "btn btn-primary" %></p>
+      <p><%= link_to "See More", movie_path(movie), class: "btn btn-primary" %></p>
     </div>
   </div>
 </div>

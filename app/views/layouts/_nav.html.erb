@@ -1,16 +1,17 @@
 <div class="container">
-<nav class="navbar navbar-right" role="navigation">
+<div><%= link_to "home", movies_path %> </div>
+  <nav class="navbar navbar-right" role="navigation">
 
-    <% if current_user %>
-      <span class="nav-link"><%= link_to current_user.full_name, edit_user_path(current_user)%></span><span class="nav-link"><%= link_to "Log out", session_path(current_user), method: :delete %></span>
-      <% if admin? %>
-        <span class="nav-link admin-tab"><%= link_to "Admin Panel", admin_users_path %></span>
-      <% elsif session[:previous_user] %>
-        <span class="nav-link"><%= link_to "Return to Admin View", return_path(session[:previous_user]) %></span>
+      <% if current_user %>
+        <span class="nav-link"><%= link_to current_user.full_name, edit_user_path(current_user)%></span><span class="nav-link"><%= link_to "Log out", session_path(current_user), method: :delete %></span>
+        <% if admin? %>
+          <span class="nav-link admin-tab"><%= link_to "Admin Panel", admin_users_path %></span>
+        <% elsif session[:previous_user] %>
+          <span class="nav-link"><%= link_to "Return to Admin View", return_path(session[:previous_user]) %></span>
+        <% end %>
+      <% else %>
+        <span class="nav-link"><%= link_to "Log In", new_session_path %></span> <span class="nav-link"><%= link_to "Sign Up", new_user_path %></span>
       <% end %>
-    <% else %>
-      <span class="nav-link"><%= link_to "Log In", new_session_path %></span> <span class="nav-link"><%= link_to "Sign Up", new_user_path %></span>
-    <% end %>
 
-</nav>
-  </div>
+  </nav>
+</div>
